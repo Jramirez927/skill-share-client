@@ -1,24 +1,27 @@
-import { registerRootComponent } from 'expo';
+import { Text, View , StyleSheet} from 'react-native';
+import { Link } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import RootLayout from './_layout';
-
+//index file is the homepage
 function App() {
   return (
     <View style={styles.container}>
-       <RootLayout/>
-       <StatusBar style="auto" />
+      <Text style={styles.indexText} >Index</Text>
+      <StatusBar style="auto"/>
+      <Link href="/home" style={{color:'blue'}}>Go to Home!</Link>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container:{
+    display: "flex",
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent:"center",
   },
-});
-
-registerRootComponent(App);
+  indexText: {
+    fontFamily: "Poppins-SemiBold",
+    fontSize: 24,
+  }
+})
+export default App
