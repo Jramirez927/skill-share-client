@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { BottomTabScreenProps, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { CompositeScreenProps } from "@react-navigation/native";
 import React from "react";
@@ -6,17 +7,35 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Icon } from "../components";
 import { translate } from "../i18n";
 import { ContentManagmentScreen, DemoShowroomScreen, DemoDebugScreen } from "../screens";
+=======
+import { BottomTabScreenProps, createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { CompositeScreenProps } from "@react-navigation/native"
+import React from "react"
+import { TextStyle, ViewStyle } from "react-native"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
+import { Icon } from "../components"
+import { translate } from "../i18n"
+import { DemoCommunityScreen, DemoShowroomScreen, DemoSettingsScreen } from "../screens"
+>>>>>>> Stashed changes
 import { DemoPodcastListScreen } from "../screens/DemoPodcastListScreen"
 import SwipeScreen from "../screens/SwipeScreen";
 import { colors, spacing, typography } from "../theme";
 import { AppStackParamList, AppStackScreenProps } from "./AppNavigator";
 
 export type DemoTabParamList = {
+<<<<<<< Updated upstream
   DemoCommunity: undefined;
   SwipeScreen: { queryIndex?: string; itemIndex?: string };
   DemoDebug: undefined;
   DemoPodcastList: undefined;
 };
+=======
+  DemoCommunity: undefined
+  DemoShowroom: { queryIndex?: string; itemIndex?: string }
+  DemoSettings: undefined
+  DemoPodcastList: undefined
+}
+>>>>>>> Stashed changes
 
 /**
  * Helper for automatically generating navigation prop types for each route.
@@ -87,12 +106,12 @@ export function DemoNavigator() {
       />
 
       <Tab.Screen
-        name="DemoDebug"
-        component={DemoDebugScreen}
+        name="DemoSettings"
+        component={DemoSettingsScreen}
         options={{
           tabBarLabel: translate("demoNavigator.debugTab"),
           tabBarIcon: ({ focused }) => (
-            <Icon icon="debug" color={focused ? colors.tint : undefined} size={30} />
+            <Icon icon="settings" color={focused ? colors.tint : undefined} size={30} />
           ),
         }}
       />

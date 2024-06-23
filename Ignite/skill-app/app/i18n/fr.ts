@@ -82,7 +82,7 @@ const fr: Translations = {
     demoViaTxProp: "Via la propriété `tx`",
     demoViaSpecifiedTxProp: "Via la propriété `{{prop}}Tx` spécifiée",
   },
-  demoDebugScreen: {
+  demoSettingsScreen: {
     howTo: "COMMENT FAIRE",
     title: "Débugage",
     tagLine:
