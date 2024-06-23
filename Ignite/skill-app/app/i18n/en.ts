@@ -42,13 +42,9 @@ const en = {
     hint: "Hint: you can use any email address and your favorite password :)",
   },
   demoNavigator: {
-<<<<<<< Updated upstream
     swipeTab: "Skill Share",
-    debugTab: "Debug",
-=======
     componentsTab: "Components",
     debugTab: "Settings",
->>>>>>> Stashed changes
     communityTab: "Community",
     podcastListTab: "Podcast",
   },
