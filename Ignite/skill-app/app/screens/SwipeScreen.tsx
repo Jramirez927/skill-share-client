@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
@@ -6,24 +6,28 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
+import ProfileCard from '../components/SwipeScreenComponents/ProfileCard';
 
 const { width } = Dimensions.get('window');
 
 const SwipeScreen: React.FC = () => {
+  const [message, setMessage] = useState<string | null>(null);
   const translateX = useSharedValue(0);
 
   const panGesture = Gesture.Pan()
     .onBegin(() => {
-      // Handle gesture start
+      setMessage(null); // Reset message on gesture start
     })
     .onUpdate((event) => {
       translateX.value = event.translationX;
     })
     .onEnd(() => {
-      if (translateX.value < -width / 2) {
+      if (translateX.value < -width / 3) {
         translateX.value = withSpring(-width);
-      } else if (translateX.value > width / 2) {
+        setMessage('Pass');
+      } else if (translateX.value > width / 3) {
         translateX.value = withSpring(width);
+        setMessage('Match');
       } else {
         translateX.value = withSpring(0);
       }
@@ -39,9 +43,19 @@ const SwipeScreen: React.FC = () => {
     <View style={styles.container}>
       <GestureDetector gesture={panGesture}>
         <Animated.View style={[styles.card, animatedStyle]}>
-          <Text style={styles.text}>Swipe Me!</Text>
+          <ProfileCard
+            imageUri="../../assets/images/guitarMan.jpg"
+            name="John Doe"
+            age={28}
+            bio="Loves hiking, traveling, and photography."
+          />
         </Animated.View>
       </GestureDetector>
+      {message && (
+        <View style={[styles.messageContainer, message === 'Match' ? styles.match : styles.pass]}>
+          <Text style={styles.messageText}>{message}</Text>
+        </View>
+      )}
     </View>
   );
 };
@@ -53,12 +67,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   card: {
-    width: width - 40,
-    height: 300,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: 300,
+    height: 400,
     borderRadius: 10,
+    overflow: 'hidden',
+    backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -68,9 +81,23 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
-  text: {
-    fontSize: 18,
+  messageContainer: {
+    position: 'absolute',
+    top: '50%',
+    transform: [{ translateY: -50 }],
+    padding: 20,
+    borderRadius: 10,
+  },
+  messageText: {
+    fontSize: 24,
     fontWeight: 'bold',
+    color: 'white',
+  },
+  match: {
+    backgroundColor: 'green',
+  },
+  pass: {
+    backgroundColor: 'red',
   },
 });
 
