@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "SkillShareClient",
-    "slug": "SkillShareClient",
+    "name": "Name_SkillShareClient",
+    "slug": "Slug_SkillShareClient",
+    "scheme": "SkillShare",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

@@ -48,10 +48,10 @@ const en = {
     podcastListTab: "Podcast",
   },
   demoCommunityScreen: {
-    title: "Connect with the community",
+    title: "My Content",
     tagLine:
-      "Plug in to Infinite Red's community of React Native engineers and level up your app development with us!",
-    joinUsOnSlackTitle: "Join us on Slack",
+      "Welcome to your personal library of video lessons! Here, you can upload, manage, and view your instructional videos with ease. Whether you're teaching, learning, or just sharing knowledge, this platform is designed to support you.",
+    joinUsOnSlackTitle: "My Lessons",
     joinUsOnSlack:
       "Wish there was a place to connect with React Native engineers around the world? Join the conversation in the Infinite Red Community Slack! Our growing community is a safe space to ask questions, learn from others, and grow your network.",
     joinSlackLink: "Join the Slack Community",
